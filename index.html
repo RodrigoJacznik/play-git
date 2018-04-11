@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet"> 
+
+    <style>
+        * {
+            font-family: 'Fira Mono';
+        }
+
+        .graph {
+            width: 98vw;
+            height: 48vh;
+            overflow: auto;
+        }
+
+        .console {
+            width: 98vw;
+            height: 48vh;
+
+            color: #F2E5BC;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            background-color: #32302F;
+        }
+
+        .history-entry {
+            padding: 1em 1em 0 1em;
+        }
+
+        .history-entry pre {
+            margin: 0
+        }
+
+        .prompt {
+            border-top: 1px solid #ccc;
+        }
+
+        .prompt input {
+            width: 90vw;
+            border: none;
+
+            font-size: 16px;
+            color: #F2E5BC;
+            background-color: #32302F;
+            padding: 1em 0 1em 0;
+            margin-left: 0.5em;
+        }
+
+        .prompt span {
+            margin-left: 1em;
+        }
+
+        .prompt input:focus {
+            outline: none;
+        }
+
+        .history {
+            flex-grow: 1;
+            overflow: auto;
+            padding-bottom: 1em;
+        }
+
+        .history .active {
+            color: green;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="graph">
+        <svg id="svg" width="2000" height="600"></svg>
+    </div>
+
+    <div class="console">
+        <div class="history"></div>
+        <div class="prompt">
+            <span>$</span>
+            <input type="text" spellcheck="false" id="command" autofocus="true">
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+</html>
