@@ -57,9 +57,7 @@ function makeBranch(options) {
             if (this.name === 'master' && options.name !== 'dev') {
                 yExtra = -35;
             } else {
-                yExtra = this.branches.length > 0
-                    ? this.branches.length * 70 
-                    : 0;
+                yExtra = this.branches.length * 70;
             }
 
             const b = makeBranch(Object.assign(
@@ -67,6 +65,8 @@ function makeBranch(options) {
                 { from: this, yExtra },
                 options
             ));
+
+            this.branches = [...this.branches, b];
 
             s.line(
                 this.nextCommit,
